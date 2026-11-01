@@ -119,6 +119,127 @@ document.addEventListener('click',function(e){
 <!-- 3. PASTE YOUR TECHNOLOGIES WEBSITE CODE HERE -->
 <section id="technologies">
   <h1>WELLINGTON TECHNOLOGIES</h1>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WELLINGTON MOVERS - Video Advert</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#0a1931;color:white}
+#video-container{position:relative;width:100%;height:100vh;overflow:hidden}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 2s ease-in-out;display:flex;align-items:flex-end;}
+.slide.active{opacity:1}
+.overlay{width:100%;background:linear-gradient(to top, rgba(10,25,49,0.65) 0%, rgba(10,25,49,0.25) 40%, transparent 100%);padding:70px 45px;}
+.overlay h1{font-size:52px;line-height:1.1;text-shadow:0 4px 20px rgba(0,0,0,0.8)}
+.overlay h2{font-size:36px;margin-bottom:14px;text-shadow:0 3px 15px rgba(0,0,0,0.8)}
+.overlay p{font-size:20px;max-width:780px;line-height:1.6;color:#f0f0f0;text-shadow:0 2px 10px rgba(0,0,0,0.9)}
+.gold{color:#d4af37}
+.btn{display:inline-block;margin-top:22px;background:#d4af37;color:#0a1931;padding:14px 35px;border-radius:50px;text-decoration:none;font-weight:700;font-size:18px;border:none;cursor:pointer;box-shadow:0 5px 20px rgba(0,0,0,0.4)}
+.progress{position:absolute;bottom:0;left:0;height:6px;background:#d4af37;width:0%;z-index:20}
+#playBtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:30;background:#d4af37;color:#0a1931;border:none;padding:22px 45px;border-radius:50px;font-size:24px;font-weight:700;cursor:pointer;box-shadow:0 10px 40px rgba(0,0,0,0.6)}
+#playBtn.hide{display:none}
+.flag-moving{animation: flagWave 2.5s ease-in-out infinite alternate;}
+@keyframes flagWave{0%{transform:scale(1) skewX(-1deg)}100%{transform:scale(1.05) skewX(1deg)}}
+</style>
+</head>
+<body>
+
+<div id="video-container">
+  <div class="progress" id="progress"></div>
+  <button id="playBtn">▶ PLAY ADVERT</button>
+  
+
+  <div class="slide active" style="background-image:url('scene1.jpg')">
+    <div class="overlay"><h2>Every Dream Begins With A Journey</h2><p>Every great dream begins with a journey. A family searching for a better home. A business reaching for greater heights.</p></div>
+  </div>
+  <div class="slide" style="background-image:url('scene2.jpg')">
+    <div class="overlay"><h2>You Deserve A Partner, Not Just A Truck</h2><p>But every journey comes with challenges. That's why you deserve more than just a truck. You deserve a partner.</p></div>
+  </div>
+  <div class="slide" style="background-image:url('scene3.jpg')">
+    <div class="overlay"><h1>WELLINGTON MOVERS<br><span class="gold">INVESTMENTS & LOGISTICS</span></h1><p>A name built on ambition, reliability and the promise of moving you forward.</p></div>
+  </div>
+  <div class="slide" style="background-image:url('scene4.jpg')">
+    <div class="overlay"><h2>WHAT WE DO</h2><p>House Relocations, Office Moves, Truck Hire, Lorry & Trailer Hire, Cargo Transportation, and Smart Investment Opportunities.</p></div>
+  </div>
+  <div class="slide" style="background-image:url('scene5.jpg')">
+    <div class="overlay"><h2>Building Tomorrow</h2><p>Because logistics is more than moving goods. It is about connecting people, creating opportunities and building a stronger tomorrow.</p></div>
+  </div>
+  <div class="slide" style="background-image:url('scene6.jpg')">
+    <div class="overlay" style="text-align:center;background:rgba(10,25,49,0.45);height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+      <h1>WELLINGTON MOVERS</h1><h2 class="gold">INVESTMENTS & LOGISTICS</h2>
+      <p style="margin:20px auto;text-align:center;" class="gold">Moving Value. Connecting Markets. Building Tomorrow.</p>
+      <p style="font-style:italic;text-align:center;">Your journey. Our commitment. Our promise.</p>
+      <a class="btn" href="https://devkimani-wellington.github.io/Wellington-movers/">Visit Our Website</a>
+    </div>
+  </div>
+  <div class="slide flag-moving" style="background-image:url('kenya-flag-moving.jpg')">
+    <div class="overlay" style="text-align:center;background:rgba(10,25,49,0.35);height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+      <h1>WELLINGTON MOVERS</h1>
+      <h2 class="gold" style="font-size:28px; margin:15px 0;">Proudly Kenyan • Built for Kenya</h2>
+      <p style="text-align:center; font-size:22px; margin-top:15px;" class="gold">Moving Value. Connecting Markets. Building Tomorrow.</p>
+      <p style="text-align:center; margin-top:10px; font-style:italic; font-size:20px;">Your journey • Our commitment • Our promise</p>
+      <p style="text-align:center; margin-top:25px; font-size:16px;">🇰🇪 Moving Kenya Forward, One Journey at a Time</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const voiceTexts = [
+  "Every great dream begins with a journey. A family searching for a better home. A business reaching for greater heights.",
+  "But every journey comes with challenges. Distance, time, and the fear of trusting the wrong hands. That is why you deserve more than just a truck. You deserve a partner.",
+  "Introducing Wellington Movers, Investments and Logistics. A name built on ambition, reliability and the promise of moving you forward.",
+  "Whether it is your house, your office, or heavy commercial cargo. Whether you need a truck, a lorry, a trailer, or a fleet. We move it all. Safely. On time. With care.",
+  "Because logistics is more than moving goods. It is about connecting people, creating opportunities and building a stronger tomorrow.",
+  "Wellington Movers, Investments and Logistics. Moving Value. Connecting Markets. Building Tomorrow. Your journey. Our commitment. Our promise.",
+  "Proudly Kenyan. Built for Kenya. Wellington Movers, moving Kenya forward, one journey at a time."
+];
+
+let cur=0;
+const slides=document.querySelectorAll('.slide');
+const progress=document.getElementById('progress');
+const playBtn=document.getElementById('playBtn');
+let autoTimer, progTimer;
+let voicesReady = [];
+
+function loadVoices(){ voicesReady = window.speechSynthesis.getVoices(); }
+loadVoices();
+if(window.speechSynthesis.onvoiceschanged !== undefined){ window.speechSynthesis.onvoiceschanged = loadVoices; }
+function getDeepMaleVoice(){
+  const v=voicesReady; if(!v.length) return null;
+  return v.find(x=>x.name.includes('Microsoft Guy'))||v.find(x=>x.name.includes('Microsoft David'))||v.find(x=>x.name.toLowerCase().includes('male'))||v.find(x=>x.lang==='en-US')||v[0];
+}
+function speak(text){
+  window.speechSynthesis.cancel();
+  setTimeout(()=>{
+    const utter=new SpeechSynthesisUtterance(text);
+    const deepVoice=getDeepMaleVoice(); if(deepVoice) utter.voice=deepVoice;
+    utter.rate=0.88; utter.pitch=0.65; utter.volume=1; utter.lang='en-US';
+    window.speechSynthesis.speak(utter);
+  },150);
+}
+function show(n){
+  slides[cur].classList.remove('active');
+  cur=n; slides[cur].classList.add('active');
+  speak(voiceTexts[cur]); startProgress();
+}
+function next(){ show((cur+1)%slides.length); }
+function startProgress(){
+  let w=0; clearInterval(progTimer); progress.style.width='0%';
+  progTimer=setInterval(()=>{ w+=0.14; progress.style.width=w+'%'; if(w>=100) clearInterval(progTimer); },25);
+}
+function startShow(){
+  playBtn.classList.add('hide');
+  loadVoices();
+  setTimeout(()=>{ loadVoices(); speak(voiceTexts[0]); startProgress(); autoTimer=setInterval(next,8000); },400);
+}
+playBtn.addEventListener('click', startShow);
+</script>
+</body>
+  </html>
+  
   <p>Your full Technologies site goes here. Replace this with your Technologies code.</p>
 </section>
 
