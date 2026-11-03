@@ -96,11 +96,6 @@ nav{position:fixed;top:0;width:100%;background:rgba(7,26,51,0.96);display:flex;j
 <!-- ===================================================================== -->
 <section id="advert-section">
   <!-- ▼▼▼ PASTE YOUR ADVERT index.html BODY CODE HERE ▼▼▼ -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WELLINGTON MOVERS - Video Advert</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -215,12 +210,6 @@ function startShow(){
 playBtn.addEventListener('click', startShow);
 </script>
 </body>
-</html>
-  
-  <div class="progress" id="progress"></div>
-  <div class="slide active" style="background-image:url('scene1.jpg')">
-    <div class="overlay"><h2>Every Dream Begins With A Journey</h2></div>
-  </div>
   <!-- PASTE YOUR OTHER 6 SLIDES HERE -->
   <!-- ▲▲▲ STOP PASTING ADVERT HERE ▲▲▲ -->
 </section>
@@ -231,11 +220,6 @@ playBtn.addEventListener('click', startShow);
 <section id="homepage-section" style="padding:100px 6%; background:#071a33; min-height:80vh;">
   <!-- ▼▼▼ PASTE YOUR HOMEPAGE index.html BODY CODE HERE ▼▼▼ -->
   <h1 style="color:var(--gold); font-size:40px;">WELLINGTON MOVERS HOMEPAGE</h1>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wellington Movers Investments & Logistics</title>
 <meta property="og:title" content="Wellington Movers - Roysambu Nairobi - 0741929030">
 <meta property="og:description" content="Located Roysambu Nairobi. Homes, Offices, Trucks Hire. Call 0741929030">
@@ -307,9 +291,6 @@ document.addEventListener('click',function(e){
 })
 </script>
 </body>
-</html>
-
-
   <!-- THESE IDs ARE FOR YOUR HAMBURGER SUB-LINKS -->
   <div id="easy-home-about" style="margin-top:60px;padding:20px;background:rgba(255,255,255,0.05);border-radius:12px"><h3>Easy Home - About</h3></div>
   <div id="hama-about" style="margin-top:20px;padding:20px;background:rgba(255,255,255,0.05);border-radius:12px"><h3>Hama na Biashara - About</h3></div>
@@ -326,11 +307,6 @@ document.addEventListener('click',function(e){
 <section id="jobs-section" style="padding:100px 2%; background:#f4f6ff; color:#071a33;">
   <!-- ▼▼▼ PASTE YOUR JOB APPLICATION index.html BODY CODE HERE ▼▼▼ -->
   <h1 style="color:#071a33;">JOB APPLICATION</h1>
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Careers - Wellington Movers v2.0</title>
 <meta property="og:title" content="We're Hiring! Wellington Movers - 8 Positions">
 <meta property="og:description" content="Packers, Truck Driver, Fleet Manager, Accountant + 4 more. Competitive pay + Medical. Apply now!">
@@ -467,9 +443,7 @@ function loadAdmin(){let arr=JSON.parse(localStorage.getItem('wellington_applica
 function exportCSV(){let arr=JSON.parse(localStorage.getItem('wellington_applicants')||'[]'); let csv='Date,Name,Phone,Position,Exp,Score\n'+arr.map(a=>`"${a.date}","${a.name}","${a.phone}","${a.position}","${a.exp}",${a.score}`).join('\n'); let blob=new Blob([csv],{type:'text/csv'}); let url=URL.createObjectURL(blob); let a=document.createElement('a'); a.href=url; a.download='wellington_applicants.csv'; a.click();}
 function clearApplicants(){if(confirm('Clear all?')){localStorage.removeItem('wellington_applicants'); loadAdmin();}}
 </script>
-</body>
-  </html>
-  
+</body> 
   <!-- ▲▲▲ STOP PASTING JOB APPLICATION HERE ▲▲▲ -->
 </section>
 
