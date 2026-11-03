@@ -167,6 +167,16 @@ const voiceTexts = [
   "Because logistics is more than moving goods. It is about connecting people, creating opportunities and building a stronger tomorrow.",
   "Wellington Movers,Logistics. Moving Value. Connecting Markets. Building Tomorrow. Your journey. Our commitment. Our promise.",
   "Proudly Kenyan. Built for Kenya. Wellington Movers, moving Nations forward, one journey at a time."
+];<script>
+// YOUR REAL VOICES - not robot
+const voiceFiles = [
+  "voice1.mp3",
+  "voice2.mp3",
+  "voice3.mp3",
+  "voice4.mp3",
+  "voice5.mp3",
+  "voice6.mp3",
+  "voice7.mp3"
 ];
 
 let cur=0;
@@ -174,40 +184,46 @@ const slides=document.querySelectorAll('.slide');
 const progress=document.getElementById('progress');
 const playBtn=document.getElementById('playBtn');
 let autoTimer, progTimer;
-let voicesReady = [];
+let currentAudio = new Audio();
 
-function loadVoices(){ voicesReady = window.speechSynthesis.getVoices(); }
-loadVoices();
-if(window.speechSynthesis.onvoiceschanged !== undefined){ window.speechSynthesis.onvoiceschanged = loadVoices; }
-function getDeepMaleVoice(){
-  const v=voicesReady; if(!v.length) return null;
-  return v.find(x=>x.name.includes('Microsoft Guy'))||v.find(x=>x.name.includes('Microsoft David'))||v.find(x=>x.name.toLowerCase().includes('male'))||v.find(x=>x.lang==='en-US')||v[0];
-}
-function speak(text){
-  window.speechSynthesis.cancel();
-  setTimeout(()=>{
-    const utter=new SpeechSynthesisUtterance(text);
-    const deepVoice=getDeepMaleVoice(); if(deepVoice) utter.voice=deepVoice;
-    utter.rate=0.88; utter.pitch=0.65; utter.volume=1; utter.lang='en-US';
-    window.speechSynthesis.speak(utter);
-  },150);
-}
 function show(n){
   slides[cur].classList.remove('active');
-  cur=n; slides[cur].classList.add('active');
-  speak(voiceTexts[cur]); startProgress();
+  cur=n; 
+  slides[cur].classList.add('active');
+  playVoice(cur);
+  startProgress();
 }
+
+function playVoice(n){
+  currentAudio.pause();
+  currentAudio = new Audio(voiceFiles[n]);
+  currentAudio.play();
+}
+
 function next(){ show((cur+1)%slides.length); }
+
 function startProgress(){
   let w=0; clearInterval(progTimer); progress.style.width='0%';
   progTimer=setInterval(()=>{ w+=0.14; progress.style.width=w+'%'; if(w>=100) clearInterval(progTimer); },25);
 }
+
 function startShow(){
   playBtn.classList.add('hide');
-  loadVoices();
-  setTimeout(()=>{ loadVoices(); speak(voiceTexts[0]); startProgress(); autoTimer=setInterval(next,8000); },400);
+  playVoice(0);
+  startProgress();
+  autoTimer=setInterval(next,8000); // 8 seconds per slide
 }
+
 playBtn.addEventListener('click', startShow);
+function toggleSubMenu(id, el){
+  document.getElementById(id).classList.toggle('active');
+  el.parentElement.classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('navLinks').classList.remove('active');
+}
+</script>
+
 </script>
 </body>
   <!-- PASTE YOUR OTHER 6 SLIDES HERE -->
