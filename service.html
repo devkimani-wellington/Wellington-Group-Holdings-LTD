@@ -1,1 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service - Wellington Movers</title>
+<link rel="icon" href="logo.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,system-ui;background:#071a33;color:white;scroll-behavior:smooth}
+header{background:#071a33;border-bottom:3px solid #d4af62;position:sticky;top:0;z-index:100;display:flex;flex-direction:column}
+.logo-wrap{width:100%;display:flex;justify-content:center;padding:12px 6%}
+.logo-img{width:100%;max-width:520px;height:80px;object-fit:contain;background:transparent;display:block}
+.nav-bar{width:100%;padding:10px 6%;display:flex;justify-content:space-between;align-items:center}
+.loc{color:#d4af62;font-size:12px;font-weight:800}
+.hamburger{font-size:32px;color:#d4af62;background:none;border:none;cursor:pointer}
+.menu{display:none;position:fixed;top:135px;right:6%;background:#0d2142;border:1px solid #d4af62;border-radius:14px;width:280px;overflow:hidden;z-index:99;max-height:80vh;overflow-y:auto}
+.menu.show{display:block}
+.menu a,.about-btn{display:block;width:100%;text-align:left;padding:14px 18px;color:white;background:none;border:none;border-bottom:1px solid #112a52;font-weight:700;font-size:14px;cursor:pointer;font-family:Arial;text-decoration:none}
+.sub{display:none;background:#071a33;border-top:2px solid #d4af62}
+.sub.show{display:block}
+.sub a{padding:12px 18px 12px 32px;font-size:13px;color:#cbd5e1;border-bottom:1px solid #112a52;font-weight:700}
+.arrow{float:right;transition:.2s}.open .arrow{transform:rotate(90deg)}
+.hero{padding:40px 6% 20px;text-align:center}
+.hero h1{font-size:clamp(28px,5vw,44px);font-weight:900}
+.hero h1 span{color:#d4af62}
+.hero p{color:#94a3b8;margin-top:8px;font-size:14px}
+.section-title{padding:30px 6% 10px;font-size:28px;font-weight:900;border-top:2px solid #123061;margin-top:20px}
+.section-title span{color:#d4af62}
+.section-desc{padding:0 6% 20px;color:#94a3b8;font-size:14px}
+.grid{padding:10px 6% 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.card{background:white;color:#071a33;border-radius:14px;padding:20px;position:relative;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.2)}
+.card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:#d4af62}
+.card.business::before{background:#0ea5e9;height:6px}
+.card.truck::before{background:#22c55e;height:6px}
+.card.premium::before{background:#071a33;height:6px}
+.card.premium{background:linear-gradient(135deg,#fff,#fef3c7)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.badge{background:#071a33;color:#d4af62;padding:4px 10px;border-radius:20px;font-size:10px;font-weight:900}
+.badge.gold{background:#d4af62;color:#071a33}
+.badge.blue{background:#0ea5e9;color:white}
+.badge.green{background:#22c55e;color:white}
+.price{font-size:22px;font-weight:900;color:#b99750;margin:6px 0}
+.price.editable{border:2px dashed transparent;cursor:pointer}
+.price.admin-mode{border-color:#d4af62;background:#fffbeb;padding:4px 8px;border-radius:6px}
+.steps{margin-top:12px;background:#f1f5f9;border-radius:10px;padding:12px;font-size:13px;line-height:1.7;color:#334155}
+.btn{display:inline-block;margin-top:12px;padding:10px 16px;background:#071a33;color:white;text-decoration:none;border-radius:6px;font-weight:800;font-size:13px;margin-right:6px}
+.btn.gold{background:#d4af62;color:#071a33}
+.btn.blue{background:#0ea5e9;color:white}
+.btn.green{background:#22c55e;color:white}
+.calc-box{background:#0d2142;border:2px solid #d4af62;border-radius:14px;padding:18px;margin:20px 6%;max-width:600px}
+.calc-box h3{color:#d4af62;margin-bottom:10px}
+.calc-box input,.calc-box select{width:100%;padding:10px;margin:6px 0;border-radius:8px;border:1px solid #334155;background:#071a33;color:white}
+.calc-result{margin-top:10px;padding:12px;background:#071a33;border-radius:8px;color:#22c55e;font-weight:900;font-size:18px;text-align:center}
+.admin-bar{display:none;position:fixed;bottom:0;left:0;width:100%;background:#d4af62;color:#071a33;padding:12px 6%;z-index:200;justify-content:space-between;align-items:center;font-weight:900}
+.admin-bar.show{display:flex}
+</style>
+</head>
+<body>
 
+<header>
+<div class="logo-wrap"><img src="logo.png" class="logo-img" alt="Wellington Movers"></div>
+<div class="nav-bar"><div class="loc">📍 ROYSAMBU, NAIROBI • 0741929030</div><button class="hamburger" onclick="toggleMenu()">☰</button></div>
+<div class="menu" id="menu">
+<a href="index.html">Home</a>
+<button class="about-btn" id="aboutBtn" onclick="toggleAbout()">About <span class="arrow">▶</span></button>
+<div class="sub" id="aboutSub">
+<a href="about.html#easy">About Easy Home</a>
+<a href="about.html#hama">About Hama na Biashara</a>
+<a href="about.html#lorry">About Hire a Lorry</a>
+</div>
+<button class="about-btn" id="serviceBtn" onclick="toggleService()">Service <span class="arrow">▶</span></button>
+<div class="sub" id="serviceSub">
+<a href="#easy" onclick="closeMenu()">🏠 1. Easy Home</a>
+<a href="#hama" onclick="closeMenu()">🏢 2. Hama na Biashara</a>
+<a href="#lorry" onclick="closeMenu()">🚚 3. Hire a Truck</a>
+</div>
+<a href="payment.html">Payment</a>
+<a href="#" onclick="adminLogin();return false" style="background:#071a33;color:#d4af62;text-align:center;border-top:2px solid #d4af62">🔒 Admin Price Edit</a>
+<a href="https://wa.me/254741929030" style="background:#25D366;color:white;text-align:center;font-weight:900">💬 WhatsApp: 0741929030</a>
+</div>
+</header>
+
+<section class="hero">
+<h1>Services That <span>Fit Your Size</span></h1>
+<p>Pick your house size, business size or truck</p>
+</section>
+
+<h2 class="section-title" id="easy">1. Easy Home <span>— Nyumba</span></h2>
+<p class="section-desc">Same prices</p>
+<div class="grid">
+<div class="card"><div class="top"><h3>Single Room</h3><span class="badge">SMALL</span></div><div class="price" data-key="single">KES 5,000 - 10,000</div><div class="steps"><b>How we do it:</b><br>1. Book on WhatsApp<br>2. Small truck + 2 crew<br>3. Basic wrap<br>4. Load → Move</div><a href="payment.html?plan=Single Room&price=5000-10000" class="btn">Book This</a></div>
+<div class="card"><div class="top"><h3>Bedsitter</h3><span class="badge">STARTER</span></div><div class="price" data-key="bedsitter">KES 6,000 - 15,000</div><div class="steps"><b>How we do it:</b><br>1. Video quote<br>2. Kitchen boxes<br>3. Dismantle bed<br>4. 1 truck + 3 crew</div><a href="payment.html?plan=Bedsitter&price=6000-15000" class="btn">Book This</a></div>
+<div class="card"><div class="top"><h3>1 Bedroom</h3><span class="badge gold">POPULAR</span></div><div class="price" data-key="1br">KES 10,000 - 19,000</div><div class="steps"><b>How we do it:</b><br>1. Video survey<br>2. Pack kitchen<br>3. Wrap sofa & TV<br>4. Big truck + 4 crew</div><a href="payment.html?plan=1 Bedroom&price=10000-19000" class="btn">Book This</a></div>
+<div class="card"><div class="top"><h3>2 Bedroom</h3><span class="badge gold">MOST BOOKED</span></div><div class="price" data-key="2br">KES 12,000 - 22,000</div><div class="steps"><b>How we do it:</b><br>1. Home assessment<br>2. Full packing<br>3. Wardrobe boxes<br>4. Large truck + 5 crew<br>5. GPS tracked</div><a href="payment.html?plan=2 Bedroom&price=12000-22000" class="btn">Book This</a></div>
+<div class="card"><div class="top"><h3>3 Bedroom</h3><span class="badge">FAMILY</span></div><div class="price" data-key="3br">KES 19,000 - 27,000</div><div class="steps"><b>How we do it:</b><br>1. Free assessment<br>2. 2-day packing<br>3. Custom crating<br>4. XL truck + 6 crew<br>5. Insurance</div><a href="payment.html?plan=3 Bedroom&price=19000-27000" class="btn">Book This</a></div>
+<div class="card premium"><div class="top"><h3>Premium Plan</h3><span class="badge">VIP BEST</span></div><div class="price" data-key="premium">Above 30,000</div><div class="steps"><b>VIP:</b><br>1. VIP manager<br>2. Luxury packing<br>3. Art & piano<br>4. 2 trucks + 8 crew<br>5. White glove</div><a href="payment.html?plan=Premium Plan&price=Above 30000" class="btn gold">Book Premium</a></div>
+</div>
+
+<h2 class="section-title" id="hama">2. Hama na Biashara <span>— Business</span></h2>
+<p class="section-desc">From small to large</p>
+<div class="grid">
+<div class="card business"><div class="top"><h3>Small Scale</h3><span class="badge blue">KIOSK / SHOP</span></div><div class="price" data-key="smallBiz">KES 8,000 - 18,000</div><div class="steps"><b>For:</b> Kiosk, Salon, Small Shop<br><br>1. Evening/weekend move<br>2. Stock boxes<br>3. Small Canter + 3 crew<br>4. Same day reopen</div><a href="payment.html?plan=Hama Small Scale&price=8000-18000" class="btn blue">Book Business</a></div>
+<div class="card business"><div class="top"><h3>Scalable Business</h3><span class="badge gold">MEDIUM</span></div><div class="price" data-key="scaleBiz">KES 20,000 - 45,000</div><div class="steps"><b>For:</b> Supermarket, Restaurant<br><br>1. Site visit<br>2. Inventory labels<br>3. 2 Canters + 6 crew<br>4. IT safe move</div><a href="payment.html?plan=Hama Scalable&price=20000-45000" class="btn gold">Book Business</a></div>
+<div class="card business"><div class="top"><h3>Large Enterprises</h3><span class="badge">CORPORATE</span></div><div class="price" data-key="largeBiz">KES 50,000 - 150,000+</div><div class="steps"><b>For:</b> Warehouse, HQ<br><br>1. Project Manager<br>2. 3-5 Trucks + 12 crew<br>3. Night move<br>4. 7-day support</div><a href="payment.html?plan=Hama Large Enterprise&price=50000-150000" class="btn">Book Corporate</a></div>
+</div>
+
+<h2 class="section-title" id="lorry">3. Hire a Truck <span>— Gari Tu</span></h2>
+<p class="section-desc">50 Kshs Kshs per KM</p>
+<div class="calc-box">
+<h3>🚚 KM Calculator — 50 Kshs per KM</h3>
+<select id="truckSelect" onchange="calc()"><option value="3500">Pickup - Base 3,500</option><option value="6000">Canter 3T - Base 6,000</option><option value="9000">Canter 7T / FH - Base 9,000</option><option value="15000">20T Lorry - Base 15,000</option></select>
+<input type="number" id="kmInput" placeholder="Enter KM e.g. 20" oninput="calc()">
+<div class="calc-result" id="result">Total = Base + (KM × 50 Kshs)<br>Enter KM</div>
+</div>
+<div class="grid">
+<div class="card truck"><div class="top"><h3>Pickup - Small</h3><span class="badge green">1.5T</span></div><div class="price" data-key="pickup">Base KES 3,500 + 300/KM</div><div class="steps"><b>Best for:</b><br><b>Example:</b> 8KM = 11,500</div><a href="payment.html?plan=Hire Pickup Small&price=3500 + 300 per KM" class="btn green">Hire Pickup</a></div>
+<div class="card truck"><div class="top"><h3>Canter 3T</h3><span class="badge green">MOST HIRED</span></div><div class="price" data-key="canter3">Base KES 6,000 + 300/KM</div><div class="steps"><b>Best for:</b><br><b>Example:</b> 25KM = 31,000</div><a href="payment.html?plan=Hire Canter 3T&price=6000 + 300 per KM" class="btn green">Hire Canter</a></div>
+<div class="card truck"><div class="top"><h3>Canter 7T / FH</h3><span class="badge">LARGE</span></div><div class="price" data-key="canter7">Base KES 9,000 + 300/KM</div><div class="steps"><b>Best for:</b><br><b>Example:</b> 35KM = 44,000</div><a href="payment.html?plan=Hire Canter 7T&price=9000 + 300 per KM" class="btn">Hire 7T</a></div>
+<div class="card truck"><div class="top"><h3>20T Lorry</h3><span class="badge gold">HEAVY</span></div><div class="price" data-key="lorry20">Base KES 15,000 + 300/KM</div><div class="steps"><b>Best for:</b><br><b>Example:</b> 160KM = 175,000</div><a href="payment.html?plan=Hire 20T Lorry&price=15000 + 3000 per KM" class="btn gold">Hire 20T</a></div>
+</div>
+
+<div class="admin-bar" id="adminBar"><span>🔓 ADMIN MODE: Click price to edit!</span><button onclick="exitAdmin()" style="padding:8px 14px;background:#071a33;color:white;border:none;border-radius:6px;font-weight:800;cursor:pointer;width:auto">Exit Admin</button></div>
+
+<script>
+let admin=false;const PASS="Wellknowing001$";
+function toggleMenu(){document.getElementById('menu').classList.toggle('show')}
+function toggleAbout(){document.getElementById('aboutSub').classList.toggle('show');document.getElementById('aboutBtn').classList.toggle('open')}
+function toggleService(){document.getElementById('serviceSub').classList.toggle('show');document.getElementById('serviceBtn').classList.toggle('open')}
+function closeMenu(){document.getElementById('menu').classList.remove('show')}
+function calc(){let b=parseInt(document.getElementById('truckSelect').value)||0;let k=parseInt(document.getElementById('kmInput').value)||0;let t=b+(k*300);document.getElementById('result').innerHTML=k?`Distance: ${k}KM<br>Base: ${b.toLocaleString()} + ${k}*300 = ${t.toLocaleString()} KES`:'Enter KM';}
+function adminLogin(){let p=prompt("Company Admin Password:");if(p===PASS){admin=true;document.getElementById('adminBar').classList.add('show');document.querySelectorAll('.price').forEach(el=>{el.classList.add('admin-mode');el.contentEditable=true;});alert("Admin unlocked! Click price to edit, link auto updates to Payment!");}else if(p!==null){alert("Wrong password!");}}
+function exitAdmin(){admin=false;document.getElementById('adminBar').classList.remove('show');document.querySelectorAll('.price').forEach(el=>{el.classList.remove('admin-mode');el.contentEditable=false;localStorage.setItem('price_'+el.dataset.key,el.innerText);});alert("Prices saved!");}
+function loadPrices(){document.querySelectorAll('.price').forEach(el=>{let s=localStorage.getItem('price_'+el.dataset.key);if(s) el.innerText=s;});}
+loadPrices();
+document.addEventListener('click',e=>{let m=document.getElementById('menu'),h=document.querySelector('.hamburger');if(m&&h&&!m.contains(e.target)&&!h.contains(e.target)) m.classList.remove('show')});
+</script>
+</body>
+  </html>
